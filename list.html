@@ -1,0 +1,23 @@
+<h3>Vartotojai</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vardas</th>
+            <th>Pavardė</th>
+            <th>Asmens kodas</th>
+            <th><a href="#/new"><i class="icon-plus-sign"></i></a></th>
+        </tr>
+    </thead>
+    <tbody>  
+        <tr ng-repeat="person in persons | orderByPriority | filter:search | orderBy:'name'">
+            <td>{{person.name}}</td>
+            <td>{{person.surname}}</td>
+            <td>{{person.id}}</td>
+            <td>
+                <a href="#/person/{{person.$id}}"><i class="icon-zoom-in"></i></a>
+                <a href="#/edit/{{person.$id}}"><i class="icon-pencil"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

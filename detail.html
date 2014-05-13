@@ -1,0 +1,41 @@
+<h3>Užpildykite asmens duomenis:</h3>
+<form name="myForm">
+    <div class="control-group" ng-class="{error: myForm.name.$invalid && !myForm.name.$pristine}">
+        <label>Vardas</label>
+        <input type="text" name="name" ng-model="person.name" required>
+        <span ng-show="myForm.name.$error.required && !myForm.name.$pristine" class="help-inline"> Būtinas </span>
+    </div>
+
+    <div class="control-group" ng-class="{error: myForm.surname.$invalid && !myForm.surname.$pristine}">
+        <label>Pavardė</label>
+        <input type="text" name="surname" ng-model="person.surname" required>
+        <span ng-show="myForm.surname.$error.required && !myForm.surname.$pristine" class="help-inline"> Būtinas </span>
+    </div>
+    
+    <div class="control-group" ng-class="{error: myForm.id.$invalid && !myForm.id.$pristine}">
+        <label>Asmens kodas</label>
+        <input type="number" name="id" ng-model="person.id" required>
+        <span ng-show="myForm.id.$error.required && !myForm.id.$pristine" class="help-inline"> Būtinas </span>
+        <span ng-show="myForm.id.$error.number" class="help-inline">Ne asmens kodas!</span>
+    </div> 
+
+    <div class="control-group" ng-class="{error: myForm.email.$invalid && !myForm.email.$pristine}">
+        <label>El. pašto adresas</label>
+        <input type="email" name="email" ng-model="person.email" required>
+        <span ng-show="myForm.email.$error.required && !myForm.email.$pristine" class="help-inline"> Būtinas </span>
+        <span ng-show="myForm.email.$error.email" class="help-inline">Ne pašto adresas!</span>
+    </div>
+
+    <div class="control-group">
+        <label>Miestas</label>
+        <input type="text" name="city" ng-model="person.city" >
+    </div>
+     
+    <label>Apie:</label>
+    <textarea name="description" ng-model="person.description"></textarea>
+     
+    <br>
+    <a href="#/" class="btn">Atšaukti</a>
+    <button ng-click="save()" ng-disabled="myForm.$invalid" class="btn btn-primary">Išsaugoti</button>
+    <button ng-click="destroy()" ng-show="person.$remove" class="btn btn-danger">Ištrinti</button>
+</form>
